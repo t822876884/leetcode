@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>/D:/maven_repository</localRepository>
+
+    <servers>
+        <!--根据情况选择上传类型-->
+        <!--稳定版本配置-->
+        <server>
+            <id>releases</id>
+            <username>17100179</username>
+            <password>Sn123456...</password>
+        </server>
+        <!--快照版本-->
+        <server>
+            <id>snapshots</id>
+            <username>17100179</username>
+            <password>Sn123456...</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus-aliyun</id>
+            <mirrorOf>central</mirrorOf>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </mirror>
+    </mirrors>
+
+
+    <profiles>
+       <profile>
+            <id>dev</id>
+            <repositories>
+                <repository>
+                    <id>nexus-aliyun</id>
+                    <name>Nexus aliyun</name>
+                    <layout>default</layout>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>dev</activeProfile>
+    </activeProfiles>
+</settings>
